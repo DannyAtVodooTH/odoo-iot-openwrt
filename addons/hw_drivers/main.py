@@ -23,12 +23,11 @@ try:
     from dbus.mainloop.glib import DBusGMainLoop
 except ImportError:
     DBusGMainLoop = None
-    _logger.error('Could not import library dbus')
+    _logger.warning('Could not import library dbus, no auto update printers!')
 
 drivers = []
 interfaces = {}
 iot_devices = {}
-
 
 class Manager(Thread):
     server_url = None
