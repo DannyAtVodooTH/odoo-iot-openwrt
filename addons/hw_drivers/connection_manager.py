@@ -27,7 +27,7 @@ class ConnectionManager(Thread):
         if not helpers.get_odoo_server_url() and not helpers.access_point():
             end_time = datetime.now() + timedelta(minutes=5)
             self.pairing_code = helpers.get_pairing_code()
-            _logger.error(f'Pairing code {self.pairing_code}') 
+            _logger.info(f'Pairing code {self.pairing_code}') 
             self._refresh_displays()
             while datetime.now() < end_time:
                 self._connect_box()
